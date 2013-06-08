@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap";
+
+body {
+  /*background-color: rgb(240, 240, 240);*/
+  font-family: "Open Sans" ;
+  padding-top: 60px;
+  background-color: #fbfbfb;
+}
