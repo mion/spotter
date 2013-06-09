@@ -1,2 +1,4 @@
 # Spotter
+
 A simple Rails app built for a class project.
+Spotter is a parking spot reservation system for commercial parking lots.
