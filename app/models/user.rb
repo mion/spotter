@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name
   validates_uniqueness_of :email, case_sensitive: false
 
+  has_many :parking_lots
+  has_many :reservations
+
   def name
     "#{self.first_name} #{self.last_name}"
   end

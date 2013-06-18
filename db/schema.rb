@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609002958) do
+ActiveRecord::Schema.define(:version => 20130618200424) do
+
+  create_table "parking_lots", :force => true do |t|
+    t.string   "address",                      :null => false
+    t.integer  "spots_total",                  :null => false
+    t.integer  "spots_current", :default => 0, :null => false
+    t.string   "pricing",                      :null => false
+    t.string   "schedule",                     :null => false
+    t.integer  "user_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "parking_lots", ["address", "pricing", "schedule"], :name => "index_parking_lots_on_address_and_pricing_and_schedule"
+
+  create_table "reservations", :force => true do |t|
+    t.string   "credit_card",    :null => false
+    t.datetime "starts_at",      :null => false
+    t.datetime "ends_at",        :null => false
+    t.decimal  "price",          :null => false
+    t.integer  "user_id"
+    t.integer  "parking_lot_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "reservations", ["credit_card", "starts_at"], :name => "index_reservations_on_credit_card_and_starts_at"
+  add_index "reservations", ["user_id", "parking_lot_id", "starts_at"], :name => "index_reservations_on_user_id_and_parking_lot_id_and_starts_at"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

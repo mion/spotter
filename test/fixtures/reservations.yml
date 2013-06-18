@@ -1,0 +1,11 @@
+one:
+  credit_card: MyString
+  starts_at: 2013-06-18 17:04:24
+  ends_at: 2013-06-18 17:04:24
+  price: 9.99
+
+two:
+  credit_card: MyString
+  starts_at: 2013-06-18 17:04:24
+  ends_at: 2013-06-18 17:04:24
+  price: 9.99

@@ -1,0 +1,23 @@
+<% title "Reservations" %>
+
+<table>
+  <tr>
+    <th>Credit Card</th>
+    <th>Starts At</th>
+    <th>Ends At</th>
+    <th>Price</th>
+  </tr>
+  <% for reservation in @reservations %>
+    <tr>
+      <td><%= reservation.credit_card %></td>
+      <td><%= reservation.starts_at %></td>
+      <td><%= reservation.ends_at %></td>
+      <td><%= reservation.price %></td>
+      <td><%= link_to "Show", reservation %></td>
+      <td><%= link_to "Edit", edit_reservation_path(reservation) %></td>
+      <td><%= link_to "Destroy", reservation, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Reservation", new_reservation_path %></p>

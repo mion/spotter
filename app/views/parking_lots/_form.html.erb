@@ -1,0 +1,28 @@
+<%= form_for @parking_lot do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :spots_total %><br />
+    <%= f.number_field :spots_total %>
+  </p>
+  <p>
+    <%= f.label :spots_current %><br />
+    <%= f.number_field :spots_current %>
+  </p>
+  <p>
+    <%= f.label :pricing %><br />
+    <%= f.text_field :pricing %>
+  </p>
+  <p>
+    <%= f.label :schedule %><br />
+    <%= f.text_field :schedule %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

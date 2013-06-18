@@ -3,10 +3,14 @@ YAML.load(ENV['ROLES']).each do |role|
   Role.find_or_create_by_name({ :name => role }, :without_protection => true)
   puts 'role: ' << role
 end
+
 puts 'DEFAULT USERS'
 user = User.find_or_create_by_email first_name: ENV['ADMIN_FIRST_NAME'].dup, last_name: ENV['ADMIN_LAST_NAME'], :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.first_name
 user.add_role :admin
+
+user.parking_lots.create(address: "Rua Falsa, 123 - Bairro Mentira", spots_total: 50, pricing: '{"seg-sab": {"7-12": 15.90, "13-23": 22.90}}', schedule: '{"seg-sab": "7-23"}')
+user.parking_lots.create(address: "Av. Qualquer, 45 - XPTOlandia", spots_total: 50, pricing: '{"ter-sex": {"6-20": 14.0}}', schedule: '{"seg-sex": "6-18"}')
 
 fn = ["John", "Jack", "Jane"]
 ln = ["Smith", "Souza", "Doe"]
@@ -15,3 +19,4 @@ ln = ["Smith", "Souza", "Doe"]
   puts 'user: ' << user2.first_name
   user2.add_role role 
 end
+
