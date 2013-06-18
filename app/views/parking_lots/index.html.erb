@@ -1,0 +1,27 @@
+<% title "Parking Lots" %>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Spots Total</th>
+    <th>Spots Current</th>
+    <th>Price</th>
+    <th>Schedule</th>
+    <th>Owner</th>
+  </tr>
+  <% for parking_lot in @parking_lots %>
+    <tr>
+      <td><%= parking_lot.address %></td>
+      <td><%= parking_lot.spots_total %></td>
+      <td><%= parking_lot.spots_current %></td>
+      <td><%= parking_lot.price %></td>
+      <td><%= parking_lot.schedule %></td>
+      <td><%= parking_lot.owner_id %></td>
+      <td><%= link_to "Show", parking_lot %></td>
+      <td><%= link_to "Edit", edit_parking_lot_path(parking_lot) %></td>
+      <td><%= link_to "Destroy", parking_lot, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Parking Lot", new_parking_lot_path %></p>

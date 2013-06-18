@@ -1,0 +1,20 @@
+<%= form_for @reservation do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :credit_card %><br />
+    <%= f.text_field :credit_card %>
+  </p>
+  <p>
+    <%= f.label :starts_at %><br />
+    <%= f.datetime_select :starts_at %>
+  </p>
+  <p>
+    <%= f.label :ends_at %><br />
+    <%= f.datetime_select :ends_at %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,32 @@
+<% title "Parking Lot" %>
+
+<p>
+  <strong>Address:</strong>
+  <%= @parking_lot.address %>
+</p>
+<p>
+  <strong>Spots Total:</strong>
+  <%= @parking_lot.spots_total %>
+</p>
+<p>
+  <strong>Spots Current:</strong>
+  <%= @parking_lot.spots_current %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @parking_lot.price %>
+</p>
+<p>
+  <strong>Schedule:</strong>
+  <%= @parking_lot.schedule %>
+</p>
+<p>
+  <strong>Owner:</strong>
+  <%= @parking_lot.owner_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_parking_lot_path(@parking_lot) %> |
+  <%= link_to "Destroy", @parking_lot, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", parking_lots_path %>
+</p>

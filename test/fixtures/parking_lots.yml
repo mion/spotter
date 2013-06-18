@@ -1,0 +1,15 @@
+one:
+  address: MyString
+  spots_total: 1
+  spots_current: 1
+  price: MyString
+  schedule: MyString
+  owner_id: 1
+
+two:
+  address: MyString
+  spots_total: 1
+  spots_current: 1
+  price: MyString
+  schedule: MyString
+  owner_id: 1
