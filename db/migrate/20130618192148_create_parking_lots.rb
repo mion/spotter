@@ -1,11 +1,11 @@
 class CreateParkingLots < ActiveRecord::Migration
   def self.up
     create_table :parking_lots do |t|
-      t.string :address
-      t.integer :spots_total
-      t.integer :spots_current
-      t.string :pricing
-      t.string :schedule
+      t.string :address, null: false
+      t.integer :spots_total, null: false
+      t.integer :spots_current, null:false, default: 0
+      t.string :pricing, null: false
+      t.string :schedule, null: false
       t.references :user
 
       t.timestamps

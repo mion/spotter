@@ -1,4 +1,7 @@
 <h3>Home</h3>
+
+<%= form_tag() %>
+
 <% @users.each do |user| %>
   <p>User: <%= user.first_name %></p>
 <% end %>
