@@ -10,7 +10,9 @@ class CreateReservations < ActiveRecord::Migration
 
       t.timestamps
     end
+
     add_index :reservations, [:credit_card, :starts_at]
+    add_index :reservations, [:user_id, :parking_lot_id, :starts_at]
   end
 
   def self.down

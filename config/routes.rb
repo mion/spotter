@@ -1,6 +1,4 @@
 Spotter::Application.routes.draw do
-  resources :reservations
-
   root to: 'static_pages#home'
   match '/about', to: "static_pages#about"
 
@@ -9,6 +7,12 @@ Spotter::Application.routes.draw do
   end
   
   devise_for :users
-  resources :users
-  resources :parking_lots
+  resources :users do
+    resources :parking_lots
+    resources :reservations
+  end
+
+  resources :parking_lots do
+    resources :reservations
+  end
 end
