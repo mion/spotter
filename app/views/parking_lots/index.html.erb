@@ -1,5 +1,9 @@
 <% title "Parking Lots" %>
 
+<% if params[:search] %>
+  <h3><b><%= pluralize(@parking_lots.count, 'resultado', 'resultados') %></b> para "<%= params[:search] %>"</h3>
+<% end %>
+
 <table class="table">
   <tr>
     <th>Address</th>
