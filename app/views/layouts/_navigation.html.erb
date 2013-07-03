@@ -1,23 +1,23 @@
-<%= link_to 'Spotter', root_path, class: 'brand' %>
+<%= link_to 'Spotter', root_path, id: 'logo' %>
 <ul class="nav">
-    <li><%= link_to 'Parking lots', parking_lots_path %></li>
+    <li><%= link_to 'Como funciona?', '' %></li>
 </ul>
 
 <ul class="nav pull-right">
     <% if user_signed_in? %>
         <% if current_user.has_role? :admin %>
-            <li><%= link_to 'Admin', users_path %></li>
+            <li><%= link_to 'Dashboard', users_path %></li>
         <% elsif current_user.has_role? :owner %>
-            <li><%= link_to 'Dashboard', '' %></li>
+            <li><%= link_to 'Painel de Controle', dashboard_path %></li>
         <% elsif current_user.has_role? :cashier %>
-            <li><%= link_to 'Dashboard', '' %></li>
+            <li><%= link_to 'Painel de Controle', dashboard_path %></li>
         <% elsif current_user.has_role? :user %>
-            <li><%= link_to 'My reservations', '' %></li>
+            <li><%= link_to 'Minhas reservas', user_reservations_path(current_user) %></li>
         <% end %>
-        <li><%= link_to 'My Account', edit_user_registration_path %></li>
-        <li><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></li>
+        <li><%= link_to 'Minha conta', edit_user_registration_path %></li>
+        <li><%= link_to 'Sair', destroy_user_session_path, method: 'delete' %></li>
     <% else %>
         <li><%= link_to 'Login', new_user_session_path %></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Criar conta', new_user_registration_path %></li>
     <% end %>
 </ul>

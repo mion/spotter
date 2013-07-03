@@ -1,5 +1,7 @@
 <% title "Reservations" %>
+<h1>Minhas reservas</h1>
 
+<% unless @reservations.empty? %>
 <table>
   <tr>
     <th>Credit Card</th>
@@ -19,5 +21,6 @@
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Reservation", new_reservation_path %></p>
+<% else %>
+<p>Você não possui nenhuma reserva.</p>
+<% end %>

@@ -1,7 +1,3 @@
-<h1>Spotter</h1>
-<h4>Parking spots reservation.</h4>
-
-<%= form_tag parking_lots_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil, class: 'btn btn-primary' %>
-<% end %>
+<h1>Spotter - Reserva de vagas online!</h1>
+<h5>Isto é uma demonstração.</h5>
+<%= render 'parking_lots/search_form' %>

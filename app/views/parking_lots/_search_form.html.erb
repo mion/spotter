@@ -1,0 +1,10 @@
+<div class="row">
+<%= form_tag parking_lots_path, method: 'get' do %>
+    <div class="span10">
+        <%= text_field_tag :search, params[:search], class: 'input-search', placeholder: 'Digite um endereço, bairro ou ponto de referência' %>
+    </div>
+    <div class="span2">
+        <%= submit_tag 'Pesquisar', name: nil, class: 'btn btn-primary btn-block' %>
+    </div>
+<% end %>
+</div>

@@ -19,3 +19,22 @@
     margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
     border: 1px solid #d5d5d5;
 }
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.input-search {
+  width: 100%;
+}

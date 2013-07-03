@@ -6,12 +6,16 @@ class CreateParkingLots < ActiveRecord::Migration
       t.integer :spots_current, null:false, default: 0
       t.string :pricing, null: false
       t.string :schedule, null: false
+      t.float :latitude
+      t.float :longitude
+      t.boolean :gmaps
       t.references :user
 
       t.timestamps
     end
 
-    add_index :parking_lots, [:address, :pricing, :schedule]
+    add_index :parking_lots, :address
+    add_index :parking_lots, :pricing
   end
 
   def self.down

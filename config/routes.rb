@@ -15,4 +15,8 @@ Spotter::Application.routes.draw do
   resources :parking_lots do
     resources :reservations
   end
+
+  resources :reservations # temporary
+
+  match '/dashboard', to: 'parking_lots#dashboard'
 end

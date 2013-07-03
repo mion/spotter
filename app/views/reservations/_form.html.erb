@@ -1,20 +1,25 @@
 <%= form_for @reservation do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :credit_card %><br />
+    <%= f.label 'Número do cartão de crédito' %><br />
     <%= f.text_field :credit_card %>
   </p>
   <p>
-    <%= f.label :starts_at %><br />
+    <%= f.label 'Expira em' %><br />
+    <%= text_field_tag :expires_at %>
+  </p>
+  <p>
+    <%= f.label 'Digitos de verificação' %><br />
+    <%= text_field_tag :verify_digits %>
+  </p>
+  <p>
+    <%= f.label 'Inicio' %><br />
     <%= f.datetime_select :starts_at %>
   </p>
   <p>
-    <%= f.label :ends_at %><br />
+    <%= f.label 'Término' %><br />
     <%= f.datetime_select :ends_at %>
   </p>
-  <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </p>
-  <p><%= f.submit %></p>
+
+  <p><%= f.submit 'Comprar', class: 'btn btn-success btn-large' %> <%= link_to "Cancelar", reservations_path, class: 'btn btn-large' %></p>
 <% end %>

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'sqlite3'
+gem 'pg'
 gem 'jquery-rails'
 
 gem 'devise', ">= 2.1.2" # Authentication
@@ -9,6 +10,9 @@ gem 'cancan', '>= 1.6.8' # Authorization
 gem 'rolify', ">= 3.2.0" # Roles
 gem 'simple_form', '>= 2.0.4'
 gem 'figaro', '>= 0.5.0'
+# Location
+gem 'geocoder'
+gem 'gmaps4rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

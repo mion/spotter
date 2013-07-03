@@ -19,12 +19,16 @@ ActiveRecord::Schema.define(:version => 20130618200424) do
     t.integer  "spots_current", :default => 0, :null => false
     t.string   "pricing",                      :null => false
     t.string   "schedule",                     :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
     t.integer  "user_id"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
   end
 
-  add_index "parking_lots", ["address", "pricing", "schedule"], :name => "index_parking_lots_on_address_and_pricing_and_schedule"
+  add_index "parking_lots", ["address"], :name => "index_parking_lots_on_address"
+  add_index "parking_lots", ["pricing"], :name => "index_parking_lots_on_pricing"
 
   create_table "reservations", :force => true do |t|
     t.string   "credit_card",    :null => false

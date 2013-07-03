@@ -1,0 +1,6 @@
+<% title "Parking Lots" %>
+
+<h3>Painel de Controle</h3>
+<p>Você está logado como: <b><%= @role %></b></p>
+<br><br>
+<%= render "parking_lots/#{current_user.roles.first.name}_dashboard" %>

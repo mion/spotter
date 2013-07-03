@@ -25,8 +25,4 @@
   <%= @parking_lot.user_id %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_parking_lot_path(@parking_lot) %> |
-  <%= link_to "Destroy", @parking_lot, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", parking_lots_path %>
-</p>
+<p><%= link_to 'Reservar vaga', new_reservation_path, class: 'btn btn-large btn-primary' %></p>

@@ -1,0 +1,22 @@
+<table class="table">
+  <tr>
+    <th>Endereço</th>
+    <th>Vagas disponíveis</th>
+    <th>Preço</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% for parking_lot in @parking_lots %>
+    <tr>
+      <td><%= parking_lot.address %></td>
+      <td><%= parking_lot.spots_available %></td>
+      <td><%= parking_lot.pricing %></td>
+      <td><%= link_to "Ver", parking_lot, class: 'btn' %></td>
+      <td><%= link_to "Editar", edit_parking_lot_path(parking_lot), class: 'btn' %></td>
+      <td><%= link_to "Deletar", parking_lot, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Parking Lot", new_parking_lot_path %></p>
