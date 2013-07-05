@@ -2,7 +2,7 @@
 
 <%= render 'parking_lots/search_form' %>
 
-<%= gmaps(:map_options => { "center_on_user" => true , "auto_zoom" => false, "zoom" => 16 },
+<%= gmaps(:map_options => { "center_on_user" => false, "auto_zoom" => false, "zoom" => 16 },
           :markers     => { "data" => @json }) %>
 
 <h3>Resultado</h3>

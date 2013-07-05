@@ -2,13 +2,14 @@ class ParkingLotsController < ApplicationController
   def index
     @parking_lots = ParkingLot.search(params[:search])
     @json = @parking_lots.to_gmaps4rails do |parking, marker|
-      marker.infowindow "<b>#{parking.address}</b><br><a href=\"parkings/#{parking.id}\">Reservar vaga.</a>"
+      # marker.infowindow "<b>#{parking.address}</b><br><a href=\"parkings_lots/#{parking.id}\">Reservar vaga.</a>"
+      marker.infowindow('<b>Hello, world!</b>')
       marker.picture({
                   :picture => "assets/parking.png",
                   :width   => 32,
                   :height  => 37
                  })
-      marker.title parking.address
+      marker.title(parking.address)
     end
   end
 
