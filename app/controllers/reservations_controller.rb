@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @reservations = Reservation.all
   end
@@ -13,6 +15,8 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params[:reservation])
+    @reservation.user_id = current_user.id
+    @reservation.price = 
     if @reservation.save
       redirect_to @reservation, :notice => "Successfully created reservation."
     else

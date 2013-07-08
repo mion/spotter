@@ -5,3 +5,11 @@ body {
     background-color: #eee;
 }
 @import "bootstrap-responsive";
+
+#map img { 
+  max-width: none;
+}
+
+#map label { 
+  width: auto; display:inline; 
+} 

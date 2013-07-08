@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130618200424) do
 
   create_table "parking_lots", :force => true do |t|
+    t.string   "name",                         :null => false
     t.string   "address",                      :null => false
     t.integer  "spots_total",                  :null => false
     t.integer  "spots_current", :default => 0, :null => false
@@ -32,8 +33,10 @@ ActiveRecord::Schema.define(:version => 20130618200424) do
 
   create_table "reservations", :force => true do |t|
     t.string   "credit_card",    :null => false
+    t.string   "holder_name",    :null => false
     t.datetime "starts_at",      :null => false
     t.datetime "ends_at",        :null => false
+    t.date     "expires_at",     :null => false
     t.decimal  "price",          :null => false
     t.integer  "user_id"
     t.integer  "parking_lot_id"

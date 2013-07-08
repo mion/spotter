@@ -1,28 +1,28 @@
 <% title "Parking Lot" %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @parking_lot.address %>
-</p>
-<p>
-  <strong>Spots Total:</strong>
-  <%= @parking_lot.spots_total %>
-</p>
-<p>
-  <strong>Spots Current:</strong>
-  <%= @parking_lot.spots_current %>
-</p>
-<p>
-  <strong>Pricing:</strong>
-  <%= @parking_lot.pricing %>
-</p>
-<p>
-  <strong>Schedule:</strong>
-  <%= @parking_lot.schedule %>
-</p>
-<p>
-  <strong>Owner:</strong>
-  <%= @parking_lot.user_id %>
-</p>
 
-<p><%= link_to 'Reservar vaga', new_reservation_path, class: 'btn btn-large btn-primary' %></p>
+<div class="row">
+  <div class="span6">
+    <%= gmaps4rails(@json) %>
+  </div>
+  <div class="span6">
+    <h1><%= @parking_lot.name %></h1>
+    <p class="lead"><%= @parking_lot.address %></p>
+    <hr>
+    <b>Pricing:</b><p><%= @parking_lot.pricing %></p>
+    <br>
+    <b>Vagas disponíveis:</b> <span class="lead text-success"><%= @parking_lot.spots_current %></span> de <span class="lead text-danger"><%= @parking_lot.spots_total %></span><br>
+    <div class="progress">
+      <div class="bar bar-success" style="width: <%= @free_spots %>%;"></div>
+      <div class="bar bar-danger" style="width: <%= 100 - @free_spots %>%;"></div>
+    </div> 
+    <b>Horário de funcionamento:</b><p><%= @parking_lot.schedule %></p>
+    <br>
+    <div class="row">
+      <div class="span3">
+        <p><%= link_to 'Reservar vaga', new_reservation_path, class: 'btn btn-large btn-primary' %></p>
+      </div>
+      <div class="span4"><small>É necessário criar uma conta para reservar uma vaga.</small></div>
+    </div>
+  </div>
+</div>

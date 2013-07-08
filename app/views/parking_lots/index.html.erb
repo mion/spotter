@@ -2,16 +2,15 @@
 
 <%= render 'parking_lots/search_form' %>
 
-<%= gmaps(:map_options => { "center_on_user" => false, "auto_zoom" => false, "zoom" => 16 },
+<%= gmaps(:map_options => { "center_on_user" => false, "auto_zoom" => true}, #"zoom" => 18 },
           :markers     => { "data" => @json }) %>
 
 <h3>Resultado</h3>
-
 <% if params[:search] %>
   <p>Encontramos <%= pluralize(@parking_lots.count, 'estacionamento', 'estacionamentos') %> próximos à <b>"<%= params[:search] %>"</b>.</p>
 <% end %>
 
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th>Endereço</th>
     <th>Vagas disponíveis</th>
@@ -27,5 +26,3 @@
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Parking Lot", new_parking_lot_path %></p>

@@ -1,5 +1,5 @@
 class ParkingLot < ActiveRecord::Base
-  attr_accessible :address, :spots_total, :spots_current, :pricing, :schedule, :latitude, :longitude
+  attr_accessible :name, :address, :spots_total, :spots_current, :pricing, :schedule, :latitude, :longitude
 
   acts_as_gmappable
 
@@ -10,14 +10,13 @@ class ParkingLot < ActiveRecord::Base
 
   def self.search(params)
     if params
-      near(params, 1, :order => :distance)
+      near(params, 0.5, :order => :distance)
     else
       find(:all)
     end
   end
 
   def gmaps4rails_address
-    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
     self.address
   end
 

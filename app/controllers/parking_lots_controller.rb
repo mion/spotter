@@ -2,8 +2,7 @@ class ParkingLotsController < ApplicationController
   def index
     @parking_lots = ParkingLot.search(params[:search])
     @json = @parking_lots.to_gmaps4rails do |parking, marker|
-      # marker.infowindow "<b>#{parking.address}</b><br><a href=\"parkings_lots/#{parking.id}\">Reservar vaga.</a>"
-      marker.infowindow('<b>Hello, world!</b>')
+      marker.infowindow "<b>#{parking.address}</b><br><a href=\"parking_lots/#{parking.id}\">Reservar vaga.</a>"
       marker.picture({
                   :picture => "assets/parking.png",
                   :width   => 32,
@@ -15,6 +14,8 @@ class ParkingLotsController < ApplicationController
 
   def show
     @parking_lot = ParkingLot.find(params[:id])
+    @json = @parking_lot.to_gmaps4rails
+    @free_spots = ((100.0*@parking_lot.spots_current) / @parking_lot.spots_total).to_i
   end
 
   def new

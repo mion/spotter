@@ -37,7 +37,8 @@ addresses = [
   "Rua Pacheco Leão, 70 - Jardim Botânico",
   "Rua Visc. Pirajá, 142 - Ipanema",
   "Rua Xavier da Silveira, 58 - Copacabana",
-  "Rua Visc. de Ouro Preto, 5 e Praia de Botafogo, 348 - Botafogo",
+  "Rua Visc. de Ouro Preto, 5 - Botafogo",
+  "Praia de Botafogo, 348 - Botafogo",
   "Rua Visc. de Pirajá, 547 - Ipanema",
   "Praia de Botafogo, 501 - Botafogo",
   "Rua Dias Ferreira, 190 - Leblon",
@@ -48,12 +49,11 @@ addresses = [
   "Rua General Polidóro, 250 - Botafogo",
   "Rua Jardim Botânico, 97 - Jardim Botânico",
   "Rua Jardim Botânico, 266 - Jardim Botânico",
-  "Aterro do Flamengo S/N - Glória",
   "Rua Barata Ribeiro, 222 - Copacabana",
-  "Av. Ataulfo de Paiva, 1.100 - Ataulfo Corporate - Leblon",
+  "Av. Ataulfo de Paiva, 1.100 - Leblon",
   "Rua Prudente de Morais, 1.597 - Ipanema",
-  "Rua Garcia Dávila, 114, Ipanema - Rio de Janeiro",
-  "Rua Jardim Botânico, 705, Jd. Botânico - Rio de Janeiro",
+  "Rua Garcia Dávila, 114, Ipanema",
+  "Rua Jardim Botânico, 705, Jd. Botânico",
   "Rua Farme de Amoedo, 86, Ipanema",
   "Praia do Flamengo, 200 - Flamengo",
   "Rua Ataulfo de Paiva, 153 - Leblon",
@@ -61,8 +61,10 @@ addresses = [
   "Rua Bambina 98 - Botafogo",
   "Rua Bartolomeu Mitre, 770 - leblon",
   "Rua Muniz Barreto, 100 - Botafogo",
-  "Rua do Russel, 744/766/804 - Glória - RJ"
+  "Rua do Russel, 744/766/804 - Glória"
 ]
+
+names = ["Estapar", "MultiPark", "gePark"]
 
 puts 'Creating parking lots...'
 addresses.each do |address|
@@ -72,10 +74,15 @@ addresses.each do |address|
   a0 = [0, hr]
   a1 = [hr + 1, 23]
   pricing = {a0 => pr0, a1 => pr1}
-  p = users[:owner].parking_lots.create(address: address, 
-                                     spots_total: 15 + Random.rand(20),
+  name = names.sample
+  schedule = "Seg-Sab #{hr}h-23h / Dom #{hr}h-20h"
+  spots_total = 15 + Random.rand(20)
+  p = users[:owner].parking_lots.create(name: name,
+                                     address: address, 
+                                     spots_total: spots_total,
+                                     spots_current: Random.rand(spots_total - 1),
                                      pricing: pricing.to_json,
-                                     schedule: "{}") 
+                                     schedule: schedule) 
   puts "Created parking lot: #{p.to_s}"
 end
 
