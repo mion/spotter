@@ -10,18 +10,22 @@
   <p>Encontramos <%= pluralize(@parking_lots.count, 'estacionamento', 'estacionamentos') %> próximos à <b>"<%= params[:search] %>"</b>.</p>
 <% end %>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <tr>
+    <th></th>
     <th>Endereço</th>
     <th>Vagas disponíveis</th>
-    <th>Preço</th>
+    <th>Preço por hora</th>
     <th></th>
   </tr>
+  <% counter = 0 %>
   <% for parking_lot in @parking_lots %>
+    <% counter += 1 %>
     <tr>
+      <td><b class="lead label"><%= counter %></b></td>
       <td><%= parking_lot.address %></td>
       <td><%= parking_lot.spots_available %></td>
-      <td><%= parking_lot.pricing %></td>
+      <td>R$<%= parking_lot.current_price %></td>
       <td><%= link_to "Escolher", parking_lot, class: 'btn btn-primary' %></td>
     </tr>
   <% end %>

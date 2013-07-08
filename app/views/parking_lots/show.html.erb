@@ -9,7 +9,7 @@
     <h1><%= @parking_lot.name %></h1>
     <p class="lead"><%= @parking_lot.address %></p>
     <hr>
-    <b>Pricing:</b><p><%= @parking_lot.pricing %></p>
+    <b>Preço por hora:</b><p class="text-info lead">R$ <%= @parking_lot.current_price %></p>
     <br>
     <b>Vagas disponíveis:</b> <span class="lead text-success"><%= @parking_lot.spots_current %></span> de <span class="lead text-danger"><%= @parking_lot.spots_total %></span><br>
     <div class="progress">

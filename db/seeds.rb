@@ -71,9 +71,15 @@ addresses.each do |address|
   pr0 = (500 + Random.rand(1500)) / 100.0
   pr1 = (500 + Random.rand(1500)) / 100.0  
   hr = 7 + Random.rand(10)
-  a0 = [0, hr]
-  a1 = [hr + 1, 23]
-  pricing = {a0 => pr0, a1 => pr1}
+  a0 = (0..hr)
+  a1 = (hr+1..23)
+  pricing = {}
+  a0.each do |a|
+   pricing[a] = pr0 
+  end
+  a1.each do |a|
+   pricing[a] = pr1 
+  end
   name = names.sample
   schedule = "Seg-Sab #{hr}h-23h / Dom #{hr}h-20h"
   spots_total = 15 + Random.rand(20)

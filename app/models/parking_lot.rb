@@ -1,3 +1,5 @@
+require 'json'
+
 class ParkingLot < ActiveRecord::Base
   attr_accessible :name, :address, :spots_total, :spots_current, :pricing, :schedule, :latitude, :longitude
 
@@ -22,5 +24,13 @@ class ParkingLot < ActiveRecord::Base
 
   def spots_available
     spots_total - spots_current
+  end
+
+  def price_for_hour
+    JSON.parse(pricing)
+  end
+
+  def current_price
+    price_for_hour[Time.now.hour.to_s]
   end
 end
